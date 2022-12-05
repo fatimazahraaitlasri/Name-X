@@ -1,7 +1,21 @@
-import React, { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import React from 'react';
+// import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Register from './pages/Register';
+import Login from './pages/Login';
 
-export default function App() {
-   return <h1>Hello world</h1>;
+
+function App() {
+  return (
+    <Router>
+      {/* <Header /> */}
+      <Routes>
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+      </Routes>
+      {/* <Footer /> */}
+    </Router>
+  );
 }
+
+export default App;
