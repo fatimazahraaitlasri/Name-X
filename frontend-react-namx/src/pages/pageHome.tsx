@@ -1,18 +1,18 @@
-import Navbar from "../components/home/appBar.home"
-import IntroContainer from '../components/home/container.intro'
-import Sidebar from '../components/home/appSide.home'
-// export const Openbar = createContext(false);
+import React, { useState, createContext } from 'react'
+import Navbar from "../home/appBar.home"
+import IntroContainer from '../home/container.intro'
+import MainContainer from '../home/container.main'
+import Footer from "../home/appFooter.home"
+import Sidebar from '../home/appSide.home'
+import { Container } from '@mui/system'
 export default function Home() {
-
-  //  const [open,setOpen] = useState(false);
-
   return (
     <>
-      {/* <Openbar.Provider value={{open,setOpen}}> */}
       <Navbar />
       <Sidebar />
       <IntroContainer />
-      {/* </Openbar.Provider> */}
+      <Footer />
+
     </>
 
   )
