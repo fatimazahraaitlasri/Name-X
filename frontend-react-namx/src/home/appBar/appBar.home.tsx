@@ -7,12 +7,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Grid from '@mui/material/Grid';
-import Logo from "../assets/textures/ffLogo.png"
-import useOpen from "../context/menuContext"
+import Logo from "../../assets/textures/ffLogo.png"
+import useOpen from "../../context/menuContext"
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Sidebar from "./appSide.home";
+import Sidebar from "../appSide.home";
 import CardMedia from '@mui/material/CardMedia';
 
 
@@ -60,7 +60,7 @@ function ResponsiveAppBar() {
 
     return (
         <AppBar >
-            <Container maxWidth="xl" sx={{ bgcolor: "",   zIndex: 100, borderBottomWidth: "1px", borderBottomColor: "white", paddingTop: "1%", paddingBottom: "1%" }}>
+            <Container maxWidth="xl" sx={{ bgcolor: "", position: "fixed", zIndex: 100, borderBottomWidth: "1px", borderBottomColor: "white", paddingTop: "1%", paddingBottom: "1%" }}>
                 <Toolbar disableGutters >
                     <Box sx={{ flexGrow: 1, display: { xs: "flex" } }}>
 

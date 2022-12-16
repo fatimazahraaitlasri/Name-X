@@ -1,11 +1,11 @@
 import React from 'react'
 import HeroSlider, { Slide, SideNav, MenuNav, Nav } from "hero-slider";
 import OverlayContainer from "hero-slider";
-import Wrapper from "../components/global/UI/Wrapper/Wrapper";
-import Title from "../components/global/UI/Title/Title";
-import Subtitle from "../components/global/UI/Subtitle/Subtitle";
-import video from "../assets/videoplayback.gif"
-
+import Wrapper from "../../components/global/UI/Wrapper/Wrapper";
+import Title from "../../components/global/UI/Title/Title";
+import Subtitle from "../../components/global/UI/Subtitle/Subtitle";
+// import video from "../assets/videoplayback.gif"
+import "./container.intro.css"
 
 
 
@@ -14,29 +14,25 @@ function introContainer() {
     const kyoto = "https://genesis-cdn.ff.com/faraday-future-ff-91/silver-faraday-future-ff-91-electric-car-exiting-driveway.jpg";
     const tenryuJiTemple = "https://genesis-cdn.ff.com/faraday-future-gallery/ff-91/ff-91-gallery5.jpg";
     const hakone = "https://genesis-cdn.ff.com/faraday-future-ff-91/silver-faraday-future-ff-91-electric-car-exiting-driveway.jpg";
-    const video = "../assets/videoplayback.gif";
 
     return (
         <>
-            <div className='w-full h-auto z-0'>
+            <div className='w-full h-auto z-0 relative'>
                 <HeroSlider
-                    slidingAnimation="top_to_bottom"
-                    orientation="horizontal"
+                    slidingAnimation='left_to_right'
+                    orientation='horizontal'
+                    set
                     initialSlide={1}
-                    onBeforeChange={(previousSlide: any, nextSlide: any) =>
-                        console.log("onBeforeChange", previousSlide, nextSlide)
-                    }
-                    onChange={(nextSlide: any) => console.log("onChange", nextSlide)}
-                    onAfterChange={(nextSlide: any) => console.log("onAfterChange", nextSlide)}
                     style={{
-                        backgroundColor: "#000"
+                        backgroundColor: '#000'
                     }}
                     settings={{
                         slidingDuration: 500,
                         slidingDelay: 100,
                         shouldAutoplay: true,
-                        shouldDisplayButtons: true,
-                        autoplayDuration: 1000,
+                        shouldDisplayButtons: false,
+                        autoplayDuration: 2000,
+                        height: '100vh'
                     }}
 
                 >
@@ -79,9 +75,8 @@ function introContainer() {
 
                     <Slide
                         shouldRenderMask
-
                         background={{
-                            backgroundImageSrc: video
+                            // backgroundImageSrc: video
                         }}
                     >
                         <Wrapper>
@@ -90,11 +85,14 @@ function introContainer() {
                         </Wrapper>
                     </Slide>
 
-                    <Nav
-
-                    />
                 </HeroSlider>
-            </div>
+                <div className="scrolldown absolute bottom-10 z-40 right-0 left-0" >
+                    <div className="chevrons">
+                        <div className="chevrondown"></div>
+                        <div className="chevrondown"></div>
+                    </div>
+                </div>
+            </div >
 
         </>
     )
