@@ -7,108 +7,110 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Grid from '@mui/material/Grid';
-import Logo from "../../assets/textures/ffLogo.png"
+import Logo from "../../components/global/Logo/Logo"
 import useOpen from "../../context/menuContext"
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from '@mui/icons-material/Adb';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
 import Sidebar from "../appSide.home";
-import CardMedia from '@mui/material/CardMedia';
 
 
+const pages = ['Products', 'Pricing', 'Blog'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar() {
-    const [open, setOpen] = React.useState(true);
+function ResponsiveAppBar(): any {
+    const [anchorElNav, setAnchorElNav] = React.useState<boolean | HTMLElement>(false);
+    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
-    const newfun = () => {
-        setOpen(!open)
-    }
-    // const toggleDrawer =
-    //     (open: boolean) =>
-    //         (event: React.KeyboardEvent | React.MouseEvent) => {
-    //             if (
-    //                 event.type === 'keydown' &&
-    //                 ((event as React.KeyboardEvent).key === 'Tab' ||
-    //                     (event as React.KeyboardEvent).key === 'Shift')
-    //             ) {
-    //                 return;
-    //             }
-    //             setOpen(open);
-    //         };
-
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-        null
-    );
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-        null
-    );
-
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget);
+    const handleNavMenu = () => {
+        anchorElNav ? setAnchorElNav(false) : setAnchorElNav(true)
     };
     const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElUser(event.currentTarget);
     };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
+    ;
 
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
 
+
     return (
-        <AppBar >
-            <Container maxWidth="xl" sx={{ bgcolor: "", position: "fixed", zIndex: 100, borderBottomWidth: "1px", borderBottomColor: "white", paddingTop: "1%", paddingBottom: "1%" }}>
-                <Toolbar disableGutters >
-                    <Box sx={{ flexGrow: 1, display: { xs: "flex" } }}>
+        <>
+            <AppBar position="static" >
+                <Container maxWidth="xl" sx={{ bgcolor: anchorElNav ? "#393533" : "", overflow: "hidden", position: "absolute", zIndex: 100, borderBottomWidth: "1px", borderBottomColor: "white", paddingTop: "1%", paddingBottom: "1%" }}>
+                    <Toolbar disableGutters>
 
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            color="inherit"
-                            onClick={newfun}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                    </Box>
+                        <Logo {...{ xs: 'none', md: 'flex' }} />
+
+                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                            <IconButton
+                                size="large"
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleNavMenu}
+                                color="inherit"
+                            >
+                                <MenuIcon />
+                            </IconButton>
+
+                        </Box>
+                        <Logo {...{ xs: 'flex', md: 'none' }} />
+
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                            {pages.map((page) => (
+                                <Button
+                                    key={page}
+                                    onClick={handleNavMenu}
+                                    sx={{ my: 2, fontWeight: "bold", color: 'white', display: 'block' }}
+                                >
+                                    {page}
+                                </Button>
+                            ))}
+                        </Box >
+
+                        <Box sx={{ flexGrow: 0, width: "full" }}>
+                            <Tooltip title="Open settings">
+                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                </IconButton>
+                            </Tooltip>
+                            <Menu
+                                sx={{ mt: '45px' }}
+                                id="menu-appbar"
+                                anchorEl={anchorElUser}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                open={Boolean(anchorElUser)}
+                                onClose={handleCloseUserMenu}
+                            >
+                                {settings.map((setting) => (
+                                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                        <Typography textAlign="center">{setting}</Typography>
+                                    </MenuItem>
+                                ))}
+                            </Menu>
+                        </Box>
+                    </Toolbar>
+                </Container >
+            </AppBar >
+            <Sidebar open={anchorElNav} setOpen={handleNavMenu} />
+        </>
 
 
-                    <Grid
-                        direction="column"
-                        justifyContent="center"
-                        component="a"
-                        href=""
-                        sx={{
-                            display: { xs: "flex" },
-                            flexGrow: 1,
-                            fontFamily: "monospace",
-                            fontWeight: 700,
-                            letterSpacing: ".3rem",
-                            color: "inherit",
-                            textDecoration: "none"
-                        }}
-                    >
-                        <Avatar
-                            component="a"
-                            sx={{
-                                width: 50,
-                                height: 50,
-                                display: { xs: "flex" , textAlign:"center" },
-                            }}
-                            src={Logo}
-                            alt="logo"
-
-                        />
-                        NAMX
-                    </Grid>
-                </Toolbar>
-            </Container>
-        </AppBar>
 
     );
 }
+
 export default ResponsiveAppBar;

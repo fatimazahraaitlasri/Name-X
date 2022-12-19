@@ -12,9 +12,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import Navbar from "./appBar/appBar.home"
+import { Link } from 'react-router-dom';
+import Logo from "../components/global/Logo/Logo"
 
 
-export default function TemporaryDrawer() {
+
+export default function TemporaryDrawer(open: any, setOpen: any) {
 
     const [state, setState] = React.useState(false);
 
@@ -34,31 +38,16 @@ export default function TemporaryDrawer() {
 
     const list = () => (
         <Box
-            sx={{ width: "100vw", flexGrow: 1 }}
+            sx={{ width: "100%", height: "100%", flexGrow: 1, padding: "2%", top: "15%", backgroundColor: "white", position: "fixed" }}
             role="presentation"
             onClick={toggleDrawer(false)}
         >
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
+
+                        <ListItemButton sx={{ padding: "2%" }} >
+                            <Link to="/" className='font-extrabold text-3xl font-mono' >{text}</Link>
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -66,25 +55,18 @@ export default function TemporaryDrawer() {
         </Box >
     );
 
+    React.useEffect(() => {
+        setState(open.open);
+    }, [open.open])
     return (
         <div>
-            <React.Fragment key={'left'} >
-
+            <React.Fragment key={'left'}  >
                 <Drawer
                     anchor={'left'}
                     open={state}
                     onClick={toggleDrawer(false)}
                 >
-                    <IconButton
-                        size="large"
-                        aria-label="account of current user"
-                        aria-controls="menu-appbar"
-                        aria-haspopup="true"
-                        onClick={toggleDrawer(true)}
-                        color="inherit"
-                    >
-                        <MenuIcon />
-                    </IconButton>
+
                     {list()}
                 </Drawer>
             </React.Fragment>
