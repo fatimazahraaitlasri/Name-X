@@ -24,17 +24,17 @@ const info = [{
 }, {
     subject: "Fruit du partenariat entre Ferrari et la série de jeux vidéo Gran Turismo™, la spectaculaire Vision Gran Turismo est une monoplace futuriste motorisée avec une version plus poussée du moteur V6. Ce même moteur équipe les 296 GTB, 296 GTS et 296 GT3 ainsi que la nouvelle hypercar Ferrari  499P, qui sera présentée au Mans l’année prochaine.",
     title: "FF 91 Futurist Alliance",
-    image: hakone
+    image: "https://genesis-cdn.ff.com/faraday-future-gallery/ff-91-interior/FINAL_FF91_Interior_Shot11_WIPfixxxxx.jpg"
 
 }, {
     subject: "Fruit du partenariat entre Ferrari et la série de jeux vidéo Gran Turismo™, la spectaculaire Vision Gran Turismo est une monoplace futuriste motorisée avec une version plus poussée du moteur V6. Ce même moteur équipe les 296 GTB, 296 GTS et 296 GT3 ainsi que la nouvelle hypercar Ferrari  499P, qui sera présentée au Mans l’année prochaine.",
     title: "FF 91 Futurist Alliance",
-    image: tenryuJiTemple
+    image: "https://genesis-cdn.ff.com/faraday-future-gallery/ff-91/ff-91-gallery21.jpg"
 
 }, {
     subject: "Fruit du partenariat entre Ferrari et la série de jeux vidéo Gran Turismo™, la spectaculaire Vision Gran Turismo est une monoplace futuriste motorisée avec une version plus poussée du moteur V6. Ce même moteur équipe les 296 GTB, 296 GTS et 296 GT3 ainsi que la nouvelle hypercar Ferrari  499P, qui sera présentée au Mans l’année prochaine.",
     title: "FF 91 Futurist Alliance",
-    image: video
+    image: "https://genesis-cdn.ff.com/faraday-future-gallery/ff-91-interior/FF91_PRESTON_010_A.jpg"
 
 }]
 const app = () => {

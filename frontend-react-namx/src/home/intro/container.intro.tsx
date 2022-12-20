@@ -73,17 +73,17 @@ function introContainer() {
                         </Wrapper>
                     </Slide>
 
-                    <Slide
+                    {/* <Slide
                         shouldRenderMask
                         background={{
-                            // backgroundImageSrc: video
+                            backgroundImageSrc: video
                         }}
                     >
                         <Wrapper>
                             <Title>Basic Slider</Title>
                             <Subtitle>Slides' background attachment set to fixed</Subtitle>
                         </Wrapper>
-                    </Slide>
+                    </Slide> */}
 
                 </HeroSlider>
                 <div className="scrolldown absolute bottom-10 z-40 right-0 left-0" >

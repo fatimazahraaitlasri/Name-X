@@ -15,10 +15,19 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from '@mui/icons-material/Adb';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import Sidebar from "../appSide.home";
+import Sidebar from "./appSide.home";
+import { Link } from "react-router-dom";
+import "./appBar.css"
 
+interface pages {
+    Home: string;
+    Register: string;
+    Pruducts: string;
+    Panier: string;
+}
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages: pages = { Home: "/", Register: "Register", Pruducts: "/Pruducts", Panier: "Panier" };
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar(): any {
@@ -41,7 +50,7 @@ function ResponsiveAppBar(): any {
     return (
         <>
             <AppBar position="static" >
-                <Container maxWidth="xl" sx={{ bgcolor: anchorElNav ? "#393533" : "", overflow: "hidden", position: "absolute", zIndex: 100, borderBottomWidth: "1px", borderBottomColor: "white", paddingTop: "1%", paddingBottom: "1%" }}>
+                <Container maxWidth="xl" sx={{ bgcolor: "#000000b5", overflow: "hidden", position: "absolute", zIndex: 100, padding: "1%" }}>
                     <Toolbar disableGutters>
 
                         <Logo {...{ xs: 'none', md: 'flex' }} />
@@ -62,19 +71,22 @@ function ResponsiveAppBar(): any {
                         <Logo {...{ xs: 'flex', md: 'none' }} />
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                            {pages.map((page) => (
-                                <Button
-                                    key={page}
-                                    onClick={handleNavMenu}
-                                    sx={{ my: 2, fontWeight: "bold", color: 'white', display: 'block' }}
-                                >
-                                    {page}
-                                </Button>
+                            {Object.keys(pages).map((page) => (
+                                <Link to={pages[page]} className=" mx-4 font-bold text-lg  "> {page}</Link>
                             ))}
                         </Box >
 
-                        <Box sx={{ flexGrow: 0, width: "full" }}>
-                            <Tooltip title="Open settings">
+                        <Box sx={{ flexGrow: 0 }}>
+                            <button className="signIn">
+                                <span>S'IDENTIFIER</span>
+                                <div className="top"></div>
+                                <div className="left"></div>
+                                <div className="bottom"></div>
+                                <div className="right"></div>
+                            </button>
+
+
+                            {/* <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                     <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                                 </IconButton>
@@ -100,7 +112,7 @@ function ResponsiveAppBar(): any {
                                         <Typography textAlign="center">{setting}</Typography>
                                     </MenuItem>
                                 ))}
-                            </Menu>
+                            </Menu> */}
                         </Box>
                     </Toolbar>
                 </Container >

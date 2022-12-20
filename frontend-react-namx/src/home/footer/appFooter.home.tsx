@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from "../assets/textures/ffLogo.png"
+import Logo from "../../assets/textures/ffLogo.png"
 
 export default function App() {
     return (

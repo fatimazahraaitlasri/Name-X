@@ -12,9 +12,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import Navbar from "./appBar/appBar.home"
+import Navbar from "./appBar.home"
 import { Link } from 'react-router-dom';
-import Logo from "../components/global/Logo/Logo"
+import Logo from "../../components/global/Logo/Logo"
 
 
 
