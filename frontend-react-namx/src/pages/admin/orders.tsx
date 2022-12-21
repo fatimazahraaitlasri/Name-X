@@ -1,5 +1,5 @@
 import React from 'react'
-import DAshboard from './buttonDachboard'
+import DAshboard from '../../components/buttonDachboard'
 
 function Orders() {
   return (
