@@ -1,5 +1,5 @@
 import React from "react";
-import DAshboard from "../buttonDachboard";
+import DAshboard from "../SidebarAdmin";
 import { IoCarSport } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -10,7 +10,7 @@ import CarsSelect from "./CarsSelect";
 export default function Cars(props: any) {
   const [DataCars, SetDataCars] = useState<any[]>([]);
   const [DataCarsbyId, SetDataCarsbyId] = useState<any>([]);
-  const car_id=window.location.search.replace("?","")
+  const car_id = window.location.search.replace("?", "");
   const url = "http://localhost:5000/api/v1/cars";
   const urlId = `http://localhost:5000/api/v1/cars/${car_id}`;
 
@@ -28,10 +28,8 @@ export default function Cars(props: any) {
   };
   const getCarsById = async () => {
     const res = await axios.get(urlId);
-    SetDataCarsbyId(res.data)
-    
+    SetDataCarsbyId(res.data);
   };
-  
 
   const [searchParams, setSearchParams] = useSearchParams();
   searchParams.get("__firebase_request_key");
@@ -57,7 +55,6 @@ export default function Cars(props: any) {
         //     })}
         //   </table>
         // </div> */}{" "}
-        
         {/* } */}
         <div className="antialiased flex bg-black w-full h-screen  text-slate-300 relative py-4">
           <CarsSelect data={DataCars} />
@@ -110,7 +107,7 @@ export default function Cars(props: any) {
                   <div className="flex flex-row items-center">
                     <div className="text-3xl p-4">💰</div>
                     <div className="p-2">
-                      <p className="text-xl font-bold">{ }</p>
+                      <p className="text-xl font-bold">{}</p>
 
                       <p className="text-gray-500 font-medium">Amber Gates</p>
                       <p className="text-gray-500 text-sm">24 Nov 2022</p>
