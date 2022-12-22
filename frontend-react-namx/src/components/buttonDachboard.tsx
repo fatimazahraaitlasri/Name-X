@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IoCarSport } from "react-icons/io5"
 import { BsBorderStyle } from "react-icons/bs"
 import { FaUserFriends } from "react-icons/fa"
+import { Link } from "react-router-dom";
 export default function Sidebar() {
     return (
 
@@ -21,7 +22,7 @@ export default function Sidebar() {
             </a>
             <hr className="my-2 border-slate-700"/>
             <div id="menu" className="flex flex-col space-y-2 my-5 ">
-                <a href="/dashboard/cars" className="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
+                <Link to={"/dashboard/cars"} className="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
                     <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-6 items-center">
                         <div className=" text-2xl"> 
                             <IoCarSport/>            
@@ -33,8 +34,8 @@ export default function Sidebar() {
                         </div>
                         
                     </div>
-                </a>
-                <a href="/dasboard/orders" className="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
+                </Link>
+                <Link to={"/dasboard/orders"} className="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
                     <div className="relative flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-6 items-center">
                         <div className=" text-2xl">
                             <BsBorderStyle/>                             
@@ -45,8 +46,9 @@ export default function Sidebar() {
                         </div>
                         <div className="absolute -top-3 -right-3 md:top-0 md:right-0 px-2 py-1.5 rounded-full bg-indigo-800 text-xs font-mono font-bold">23</div>
                     </div>
-                </a>
-                <a href="/dasboard/Clients" className="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
+                </Link>
+                
+                <Link to={"/dasboard/Clients"} className="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
                     <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-6 items-center">
                         <div className=" text-2xl">
                         <FaUserFriends/>                              
@@ -57,8 +59,8 @@ export default function Sidebar() {
                         </div>
                         
                     </div>
-                </a>
-                <a href="/dasboard/detaills" className="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
+                </Link>
+                <Link to={"/dasboard/detaills"} className="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
                     <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-6 items-center">
                         <div className=" text-2xl">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 group-hover:text-indigo-400">
@@ -73,7 +75,7 @@ export default function Sidebar() {
                         </div>
                         
                     </div>
-                </a>
+                </Link>
             </div>
             <p className="text-sm text-center text-gray-600">v2.0.0.3 | &copy; 2022 Pantazi Soft</p>
         </div>

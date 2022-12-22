@@ -2,36 +2,39 @@ import React from "react";
 import DAshboard from "../buttonDachboard";
 import { IoCarSport } from "react-icons/io5";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import CarsSelect from "./CarsSelect";
 
-export default function Cars() {
+export default function Cars(props: any) {
   const [DataCars, SetDataCars] = useState<any[]>([]);
-  
+  const [DataCarsbyId, SetDataCarsbyId] = useState<any>([]);
+  const car_id=window.location.search.replace("?","")
   const url = "http://localhost:5000/api/v1/cars";
+  const urlId = `http://localhost:5000/api/v1/cars/${car_id}`;
 
   useEffect(() => {
     getAllCars();
-    console.log("succes starting");
-  }, []);
-
-   function handleSubmit(e:any){
-    e.preventDefault();
-    getAllCars();
-}
-
-
+    getCarsById();
+  }, [car_id]);
 
   const getAllCars = async () => {
     fetch(url).then((res) => {
       res.json().then((result) => {
-        console.log(result);
         SetDataCars(result);
-        console.log(DataCars.length);
       });
     });
   };
+  const getCarsById = async () => {
+    const res = await axios.get(urlId);
+    SetDataCarsbyId(res.data)
+    
+  };
+  
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  searchParams.get("__firebase_request_key");
   return (
     <>
       <div className="flex ">
@@ -54,55 +57,17 @@ export default function Cars() {
         //     })}
         //   </table>
         // </div> */}{" "}
-        */
-        {/* } */}       
+        
+        {/* } */}
         <div className="antialiased flex bg-black w-full h-screen  text-slate-300 relative py-4">
-          {/* ::::::::::::::::::::::::::::::::::::::::::::::::::: */} 
-
-          {/* <div className="bg-white/10 ml-11 w-56  rounded-lg px-3 overflow-y-scroll ">
-          {DataCars.map((Element: any, index: number) => {
-          return (
-            <>
-            <button onClick={handleSubmit}>
-          <a
-                href="/dashboard/cars"
-                className="   transition duration-150 ease-linear rounded-lg py-3 px-2 group"  
-                
-              >
-                <div className=" hover:bg-white/10 h-14 flex flex-col  md:flex-row md:space-y-0 space-x-6 items-center">
-                  <div className=" text-2xl">
-                    <IoCarSport />
-                  </div>
-                  <div>
-                    <p className="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">
-                      
-                      Cars{index + 1}     
-                      {Element._id}
-                    </p>
-                    <p className="text-slate-400 text-sm hidden md:block">
-                      Data overview
-                    </p>
-                  </div>
-                </div>
-              </a>
-              </button>
-              <hr className="my-2 border-slate-700" />
-              </>
-          );
-        })}
-              </div> */}
-
-
-
-{/* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */}
-          {/* <div className="bg-white/10 flex flex-col justify-center items-center mx-6  w-4/5 gap-5  h-full rounded-lg">
+          <CarsSelect data={DataCars} />
+          <div className="bg-white/10 flex flex-col justify-center items-center mx-6  w-4/5 gap-5  h-full rounded-lg">
             <div className=" flex justify-end w-full mr-10 ">
               <div className="inline-flex items-center space-x-3">
                 <a
                   href="cars/update"
                   title="Edit"
-                  className="hover:text-white"
-                  
+                  className="hover:text-white  "
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +110,8 @@ export default function Cars() {
                   <div className="flex flex-row items-center">
                     <div className="text-3xl p-4">💰</div>
                     <div className="p-2">
-                      <p className="text-xl font-bold">Name</p>
+                      <p className="text-xl font-bold">{ }</p>
+
                       <p className="text-gray-500 font-medium">Amber Gates</p>
                       <p className="text-gray-500 text-sm">24 Nov 2022</p>
                     </div>
@@ -175,7 +141,7 @@ export default function Cars() {
                   <div className="flex flex-row items-center">
                     <div className="text-3xl p-4">💰</div>
                     <div className="p-2">
-                      <p className="text-xl font-bold">Type</p>
+                      <p className="text-xl font-bold"></p>
                       <p className="text-gray-500 font-medium">Amber Gates</p>
                       <p className="text-gray-500 text-sm">24 Nov 2022</p>
                     </div>
@@ -258,7 +224,7 @@ export default function Cars() {
             <div className="grid   gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl ">
               <div id="last-users " className="w-full">
                 <h1 className="font-bold py-4 ">Details</h1>
-                <div className=" text-center overflow-x-scroll">
+                <div className=" text-center overflow-x-auto">
                   <table className="w-full  text-center  ">
                     <thead className="bg-black/60 text-center">
                       <th className="text-left py-3 px-11 rounded-l-lg">
@@ -275,7 +241,6 @@ export default function Cars() {
                         Vitesse maximale
                       </th>
                     </thead>
-
                     <tr className="border-b border-gray-800">
                       <td className="py-3 px-2 font-bold">
                         <div className="inline-flex space-x-3 items-center">
@@ -291,7 +256,7 @@ export default function Cars() {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
 
