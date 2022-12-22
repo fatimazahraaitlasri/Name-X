@@ -5,28 +5,19 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Grid from '@mui/material/Grid';
 import Logo from "../../components/global/Logo/Logo"
-import useOpen from "../../context/menuContext"
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from '@mui/icons-material/Adb';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import Sidebar from "./appSide.home";
 import { Link } from "react-router-dom";
 import "./appBar.css"
 
-interface pages {
+type Page = {
     Home: string;
     Register: string;
     Pruducts: string;
     Panier: string;
 }
+const pages: any = { Home: "/", Register: "/Register", Pruducts: "/3D-tour", Panier: "Panier" };
 
-const pages: pages = { Home: "/", Register: "Register", Pruducts: "/Pruducts", Panier: "Panier" };
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -71,7 +62,7 @@ function ResponsiveAppBar(): any {
                         <Logo {...{ xs: 'flex', md: 'none' }} />
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                            {Object.keys(pages).map((page) => (
+                            {Object.keys(pages).map((page: string) => (
                                 <Link to={pages[page]} className=" mx-4 font-bold text-lg  "> {page}</Link>
                             ))}
                         </Box >

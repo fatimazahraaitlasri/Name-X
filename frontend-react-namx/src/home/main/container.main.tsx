@@ -1,6 +1,6 @@
 import { Container } from "@mui/system";
-import Card from "../components/global/UI/Card/Card"
-import video from "../assets/videoplayback.gif"
+import Card from "../../components/global/UI/Card/Card"
+import video from "../../assets/videoplayback.gif"
 
 const kyoto = "https://genesis-cdn.ff.com/faraday-future-ff-91/silver-faraday-future-ff-91-electric-car-exiting-driveway.jpg";
 const tenryuJiTemple = "https://genesis-cdn.ff.com/faraday-future-gallery/ff-91/ff-91-gallery5.jpg";
@@ -45,7 +45,7 @@ const app = () => {
                     <span className="text-5xl">»</span>
                     <h1 >L'ESPRIT DE NAMX</h1>
                 </div>
-                <div className="flex flex-wrap justify-around items-center">
+                <div className=" inline-grid justify-items-center items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  w-full">
                     {
                         info.map((element) => { return (<Card {...element} />) })
                     }

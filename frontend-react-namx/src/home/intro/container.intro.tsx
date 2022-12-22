@@ -86,7 +86,7 @@ function introContainer() {
                     </Slide> */}
 
                 </HeroSlider>
-                <div className="scrolldown absolute bottom-10 z-40 right-0 left-0" >
+                <div className="scrolldown absolute bottom-10 z-40 right-0 left-50" >
                     <div className="chevrons">
                         <div className="chevrondown"></div>
                         <div className="chevrondown"></div>

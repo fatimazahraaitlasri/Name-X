@@ -6,7 +6,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<CleintPages />} />
+        <Route path='/*' element={<CleintPages />} />
         <Route path="/admin" element={<AdminPages />} />
       </Routes>
     </Router>
