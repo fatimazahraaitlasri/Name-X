@@ -19,21 +19,11 @@ function introContainer() {
         <>
             <div className='w-full h-auto z-0 relative'>
                 <HeroSlider
-                    slidingAnimation='left_to_right'
-                    orientation='horizontal'
-                    set
-                    initialSlide={1}
+                   
                     style={{
                         backgroundColor: '#000'
                     }}
-                    settings={{
-                        slidingDuration: 500,
-                        slidingDelay: 100,
-                        shouldAutoplay: true,
-                        shouldDisplayButtons: false,
-                        autoplayDuration: 2000,
-                        height: '100vh'
-                    }}
+                  
 
                 >
 

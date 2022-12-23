@@ -4,7 +4,6 @@ import DAshboard from "../../components/SidebarAdmin";
 export default function detailles() {
   return (
     <div className="flex ">
-      <DAshboard />
 
       {/* <!-- component --> */}
       <div className="antialiased bg-black w-full h-screen  text-slate-300 relative py-4">

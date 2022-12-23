@@ -41,7 +41,7 @@ function ResponsiveAppBar(): any {
     return (
         <>
             <AppBar position="static" >
-                <Container maxWidth="2xl" sx={{ bgcolor: "#000000b5", overflow: "hidden", position: "absolute", zIndex: 100, padding: "1%" }}>
+                <Container maxWidth="xl" sx={{ bgcolor: "#000000b5", overflow: "hidden", position: "absolute", zIndex: 100, padding: "1%" }}>
                     <Toolbar disableGutters>
 
                         <Logo {...{ xs: 'none', md: 'flex' }} />

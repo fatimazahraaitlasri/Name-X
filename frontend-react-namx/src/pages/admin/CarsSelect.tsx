@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function CarsSelect(props: any) {
   return (
-      <div className=" w-2/12 h-full  rounded-lg pt-8 overflow-y-auto ">
+      <div className=" w-2/12 h-full bg-white/10 rounded-lg pt-8 px-6 overflow-y-auto ">
         {props.data.map((Element: any, index: number) => {
           return (
             <>

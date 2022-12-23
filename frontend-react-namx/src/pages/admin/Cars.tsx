@@ -27,21 +27,21 @@ export default function Cars(props: any) {
   const getCarsById = async () => {
     const res = await axios.get(urlId);
     SetDataCarsbyId(res.data);
+    // console.log()
   };
 
   const [searchParams, setSearchParams] = useSearchParams();
   searchParams.get("__firebase_request_key");
   return (
     <>
-      <div className="flex w-full align-center justify-center">
-        <div className="antialiased flex gap-6 bg-black h-screen  text-slate-300 relative w-full">
+      <div className="flex w-full align-center justify-center ">
+        <div className="antialiased flex gap-6 bg-black h-screen  text-slate-300 relative w-full py-4">
           <CarsSelect data={DataCars} />
 
           <div className="bg-white/10 flex flex-col justify-center items-center px-6  w-full gap-5  h-full rounded-lg">
             <div className=" flex justify-end w-full mr-10 ">
               <div className="inline-flex items-center space-x-3">
-                <Link
-                  to={"cars/update"}
+                <Link to={"cars/update"}
                   className="hover:text-white  "
                   title="Edit"
                 >
@@ -86,7 +86,9 @@ export default function Cars(props: any) {
                   <div className="flex flex-row items-center">
                     <div className="text-3xl p-4">💰</div>
                     <div className="p-2">
-                      <p className="text-xl font-bold">{}</p>
+                      <p className="text-xl font-bold">
+                        {/* {DataCarsbyId.car_name} */}
+                        </p>
 
                       <p className="text-gray-500 font-medium">Amber Gates</p>
                       <p className="text-gray-500 text-sm">24 Nov 2022</p>
@@ -118,7 +120,9 @@ export default function Cars(props: any) {
                   <div className="flex flex-row items-center">
                     <div className="text-3xl p-4">💰</div>
                     <div className="p-2">
-                      <p className="text-xl font-bold"></p>
+                      <p className="text-xl font-bold">
+                        {/* {DataCarsbyId.type.car_type} */}
+                        </p>
                       <p className="text-gray-500 font-medium">Amber Gates</p>
                       <p className="text-gray-500 text-sm">24 Nov 2022</p>
                     </div>
@@ -148,7 +152,9 @@ export default function Cars(props: any) {
                   <div className="flex flex-row items-center">
                     <div className="text-3xl p-4">💰</div>
                     <div className="p-2">
-                      <p className="text-xl font-bold">Colers</p>
+                      <p className="text-xl font-bold">
+                          {DataCarsbyId.type.color[0].desc} 
+                        </p> 
                       <p className="text-gray-500 font-medium">Amber Gates</p>
                       <p className="text-gray-500 text-sm">24 Nov 2022</p>
                     </div>

@@ -13,7 +13,7 @@ import UpdateCars from "./updateCars";
 export default function router() {
   return (
     <>
-      <div className="flex w-full justify-between">
+      <div className="flex bg-yellow-600">
         <Sidebar />
         <Routes>
           <Route path="/" element={<Dashboard />} />

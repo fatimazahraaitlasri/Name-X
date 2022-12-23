@@ -4,15 +4,14 @@ import DAshboard from "../../components/SidebarAdmin";
 function Orders() {
   return (
     <div className="flex ">
-      <DAshboard />
 
       {/* <!-- component --> */}
       <div className="antialiased bg-black w-full h-screen  text-slate-300 relative py-4">
         <div className="grid  mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
-          <div id="last-users " className="w-full">
-            <h1 className="font-bold py-4 ">Orders</h1>
-            <div className="overflow-x-scroll">
-              <table className="w-full whitespace-nowrap">
+          <div id="last-users " className="w-full"> 
+            <h1 className="font-bold py-4 ">Orders</h1> 
+            <div className="overflow-x-scroll">        
+              <table className="w-full whitespace-nowrap">                   
                 <thead className="bg-black/60">
                   <th className="text-left py-3 px-2 rounded-l-lg">Name</th>
                   <th className="text-left py-3 px-2">Email</th>

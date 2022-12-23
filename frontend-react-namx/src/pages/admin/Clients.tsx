@@ -3,13 +3,13 @@ import DAshboard from "../../components/SidebarAdmin";
 
 export default function Clients() {
   return (
-    <div className="flex ">
-      <DAshboard />
+    <div >
+     
 
       {/* <!-- component --> */}
-      <div className="antialiased bg-black w-full h-screen  text-slate-300 relative py-4">
-        <div className="grid  mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
-          <div id="last-users " className="w-full">
+      <div className="antialiased bg-black w-screen h-full  pl-32 pt-52 text-slate-300 relative py-4">
+        <div className="grid   gap-3 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14  my-10 px-2">
+          <div id="last-users " className="w-4/5 justify-center">
             <h1 className="font-bold py-4 ">Orders</h1>
             <div className="overflow-x-scroll">
               <table className="w-full whitespace-nowrap">
@@ -179,7 +179,7 @@ export default function Clients() {
           </div>
         </div>
       </div>
-    </div>
+    {/* </div> */}
 
     // </div>
   );
